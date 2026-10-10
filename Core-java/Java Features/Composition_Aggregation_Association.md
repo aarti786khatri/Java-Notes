@@ -315,33 +315,6 @@ These examples describe common designs. The actual relationship depends on the a
 
 ---
 
-## 8. Interview Questions
-
-**Q1. What is the difference between association and aggregation?**
-
-Association is a general relationship between objects. Aggregation is a more specific whole-part relationship in which the part can exist independently of the whole.
-
-**Q2. What is the difference between aggregation and composition?**
-
-In aggregation, the part can exist independently of the whole. In composition, the whole has stronger ownership and manages the part as an integral component.
-
-**Q3. Does Java have special keywords for aggregation and composition?**
-
-No. They are object-oriented design concepts. Java developers implement them using object references, fields, constructors, and methods.
-
-**Q4. Can composition be implemented using a constructor?**
-
-Yes. A class can create its component objects inside its constructor. This is a common way to implement composition, although constructor creation alone does not guarantee exclusive ownership.
-
-**Q5. Is a `List<Employee>` always aggregation?**
-
-No. A list alone does not determine the relationship. We need to consider how the employees are created, owned, shared, and managed.
-
-**Q6. Which is better, inheritance or composition?**
-
-It depends on the requirement. Inheritance is useful for a genuine is-a relationship. Composition is useful when one object needs to use or manage another object's functionality. Composition often provides more flexibility because the classes remain less tightly coupled.
-
----
 
 ## 9. My Interview Understanding
 
