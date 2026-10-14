@@ -37,8 +37,3 @@ t.start();
 
 The state after `start()` can change quickly, so don't rely on a specific state at an arbitrary moment.
 
-## Interview questions
-
-- Is `RUNNING` a Java `Thread.State`? No.
-- Can a terminated thread be started again? No; create a new `Thread`.
-- Does `sleep()` release a synchronized monitor? No.
