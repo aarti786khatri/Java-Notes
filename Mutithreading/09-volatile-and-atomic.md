@@ -40,9 +40,16 @@ Atomic classes provide thread-safe atomic operations for supported updates, comm
 - Use `AtomicInteger` for atomic counter updates.
 - Use `synchronized` or locks when several operations must be protected together as one critical section.
 
-1. volatile keyword
-When to use: When one thread updates a flag and another thread needs to see the latest value.
-Real-time example: Stopping a background worker.
+# Volatile vs AtomicInteger vs Synchronized
+
+## 1. Volatile Keyword
+
+### When to use?
+Use `volatile` when one thread updates a variable and other threads need to see the latest value.
+
+**Real-time example:** Stopping a background worker.
+
+```java
 class Worker {
     private volatile boolean running = true;
 
@@ -57,13 +64,23 @@ class Worker {
         running = false;
     }
 }
+```
 
+### Why use volatile?
+- It makes changes visible to other threads.
+- It is useful for status flags.
+- It does not make operations like `count++` atomic.
 
-Why volatile? It ensures that changes to running are visible to other threads. Without it, visibility is not guaranteed.
-Remember: volatile does not make operations like count++ atomic.
-2. AtomicInteger
-When to use: When multiple threads update a counter and each update must be atomic.
-Real-time example: Counting how many requests an API receives.
+---
+
+## 2. AtomicInteger
+
+### When to use?
+Use `AtomicInteger` when multiple threads need to update a counter safely.
+
+**Real-time example:** Counting API requests.
+
+```java
 import java.util.concurrent.atomic.AtomicInteger;
 
 class ApiCounter {
@@ -77,13 +94,23 @@ class ApiCounter {
         return count.get();
     }
 }
+```
 
+### Why use AtomicInteger?
+- `incrementAndGet()` performs an atomic increment.
+- Concurrent updates are not lost.
+- It is useful for counters and simple atomic updates.
 
-Why AtomicInteger? Its incrementAndGet() method performs the increment atomically, so concurrent updates are not lost.
-Remember: Use atomic classes for individual atomic operations. For multiple related operations that must happen together, you may need synchronization or another coordination mechanism.
-3. synchronized keyword
-When to use: When multiple threads access shared data and a group of operations must be protected by the same lock.
-Real-time example: Two threads withdrawing money from the same bank account.
+---
+
+## 3. Synchronized Keyword
+
+### When to use?
+Use `synchronized` when multiple threads access shared data and multiple operations must be protected together.
+
+**Real-time example:** Two threads withdrawing money from the same bank account.
+
+```java
 class BankAccount {
     private int balance = 1000;
 
@@ -96,13 +123,36 @@ class BankAccount {
         }
     }
 }
+```
+
+### Why use synchronized?
+- Only one thread at a time can execute this method on the same account object.
+- It protects the balance check and deduction together.
+- It helps prevent race conditions.
+
+---
+
+## Quick Comparison
+
+| Feature | Purpose | Example |
+|---|---|---|
+| `volatile` | Visibility | Worker stop flag |
+| `AtomicInteger` | Atomic counter update | API request count |
+| `synchronized` | Protect multiple operations | Bank withdrawal |
+
+## Interview Questions
+
+1. Does `volatile` make `count++` thread-safe? No.
+2. When should we use `AtomicInteger`? For atomic counter updates.
+3. When should we use `synchronized`? When a critical section needs protection.
+4. Can `volatile` replace `synchronized`? Not when mutual exclusion or atomic multi-step operations are required.
+
+## Easy Way to Remember
+
+- `volatile` = Visibility
+- `AtomicInteger` = Atomic update
+- `synchronized` = One thread at a time for the same lock
 
 
-Why synchronized? Only one thread at a time can execute this method on the same account object. This protects the balance check and deduction as one critical section.
-For example, if two threads try to withdraw ₹700, only one should succeed when the starting balance is ₹1,000.
-Quick interview comparison
-Feature	Best use	Example
-volatile	Visibility of a shared variable	Stop-worker flag
-AtomicInteger	Thread-safe counter updates	API request count
-synchronized	Protecting a group of operations	Bank withdrawal
-Interview tip: If the interviewer asks whether volatile int count makes count++ thread-safe, answer no. The increment involves reading, adding, and writing. Use AtomicInteger for an atomic increment or synchronized when multiple operations must be protected together.
+
+
