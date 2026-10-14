@@ -40,8 +40,4 @@ class OneSlot {
 
 This simple example allows one stored value at a time. Production code often uses `BlockingQueue`, which is usually easier and safer.
 
-## Interview questions
 
-- Why is `wait()` in a `while` loop? To re-check the condition after waking.
-- Can `wait()` be called outside synchronized code? It throws `IllegalMonitorStateException`.
-- Does `notifyAll()` mean all threads run immediately? No; they must reacquire the monitor first.
