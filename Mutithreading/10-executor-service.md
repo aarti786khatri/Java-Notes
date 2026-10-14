@@ -3,6 +3,8 @@
 ## What is ExecutorService?
 
 `ExecutorService` manages task execution and can reuse a pool of worker threads. Instead of manually creating a new thread for every task, you submit tasks to an executor.
+Suppose if you create newFixedThreadPool(2), so numbers are not matter for the requests, if we make to call 100 requests simultaneously in multithreading, so it will use these 2 common shared threads only, means it will reuse, we do not need to create threads again and again, because Threads have limited size.
+After completing it we need to shutdown otherwise application will be running continuously.
 
 ## Example
 
