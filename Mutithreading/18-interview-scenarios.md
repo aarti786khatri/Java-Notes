@@ -57,14 +57,4 @@ Use interruption or a clear cancellation flag, and make the worker cooperate. Av
 | `interrupt()` | Cooperative signal, not forced termination |
 | `ForkJoinPool` | Split tasks and work-stealing |
 
-## How to answer an interview question
 
-Use this simple structure:
-
-1. Define the concept in one or two sentences.
-2. Explain why it is needed.
-3. Give a small example.
-4. Mention one limitation or common mistake.
-5. Connect it to a real application scenario.
-
-Don't memorize every sentence. Understand the example well enough to explain it in your own words.
