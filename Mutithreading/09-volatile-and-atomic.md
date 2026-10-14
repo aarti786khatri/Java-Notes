@@ -3,6 +3,7 @@
 ## `volatile`
 
 `volatile` makes writes to a variable visible to other threads that subsequently read that variable. It also establishes relevant memory-ordering guarantees.
+It will read and update value in/from in memory.
 
 ```java
 class Worker {
@@ -39,6 +40,4 @@ Atomic classes provide thread-safe atomic operations for supported updates, comm
 - Use `AtomicInteger` for atomic counter updates.
 - Use `synchronized` or locks when several operations must be protected together as one critical section.
 
-## Interview question
 
-**Is `volatile int count` enough for `count++`?** No. The increment consists of multiple steps.
