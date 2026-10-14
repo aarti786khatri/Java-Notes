@@ -2,7 +2,7 @@
 
 ## What is a thread?
 
-A thread is a path of execution inside a program. A Java application can use multiple threads to do different tasks.
+A thread is a part of execution inside a program. A Java application can use multiple threads to do different tasks.
 
 **Simple example:** In a food delivery application, one task may fetch restaurant details while another task processes a notification.
 
@@ -57,8 +57,3 @@ The output order can vary because thread scheduling is not guaranteed.
 - Make better use of available CPU cores for suitable work.
 - Process background tasks without blocking the main flow.
 
-## Interview questions
-
-1. What is the difference between a process and a thread?
-2. What happens when we call `start()` versus `run()`?
-3. Do threads always make an application faster? **No.** Thread coordination has overhead, and too many threads can reduce performance.
