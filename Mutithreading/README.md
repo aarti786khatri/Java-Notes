@@ -22,13 +22,3 @@ Simple, practical notes for Java interviews. Each topic has its own Markdown fil
 16. [ForkJoinPool](16-fork-join-pool.md)
 17. [ExecutorService vs CompletableFuture](17-executor-vs-completablefuture.md)
 18. [Interview revision and scenarios](18-interview-scenarios.md)
-
-## How to study each file
-
-- First understand the explanation without memorizing it.
-- Run the code and check the output.
-- Explain the diagram in your own words.
-- Answer the interview questions aloud.
-- Change the example and test what happens.
-
-> Diagrams use Mermaid, which GitHub can render inside Markdown files.
